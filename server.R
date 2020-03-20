@@ -72,7 +72,9 @@ server <- shinyServer(function(input, output, session) {
     
     output$comparison <- renderHighchart({
       hchart(consump_neighbours, type = "line", hcaes(x = date, y = round(temp,0),
-                                                      group = house), title = "Cooling temperature amongst neighbours") %>%
+                                                      group = house),
+             title = glue::glue("Cooling temperature amongst neighbours for {input$house}")) %>%
+        hc_title(text = glue::glue("Neighbours of {input$house}")) %>% 
         hc_yAxis(opposite = FALSE,
                  title = list(text = "Cooling temperature"),
                  labels = list(format = "{value}")) %>% 

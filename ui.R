@@ -8,25 +8,22 @@ ui <- argonDash::argonDashPage(
   sidebar = argonDash::argonDashSidebar(
     vertical = T,
     skin = 'dark',
-    background = "#4a4a4a",
+    background = "#a6569d",
     size = "lg",
     side = "left",
     id = "sidebar",
-    brand_url = "",
+    brand_url = "http://smartenergi.org/datasciencebrava/",
     brand_logo = "particle.png",
     argonDash::argonSidebarMenu(
       argonDash::argonSidebarItem(
         icon = argonIcon('atom'),
-        icon_color = '#4a4a4a',
+        icon_color = '#a6569d',
         'Identify leakages with changepoint analysis'
       )
     )
   ),
   body = argonDash::argonDashBody(
     shinyjs::useShinyjs(), # Include shinyjs in the UI
-    #  tags$head(
-    #    tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
-    #  ),
     tags$head(
       tags$style(HTML("
       
@@ -198,23 +195,24 @@ div.selectize-input div.item {
             circle = FALSE,
             size = "sm",
             width = 12,
-            # iconList = list("chart-bar-32","user-08"),
+            iconList = list(argonIcon("app")),
             argonTab(
-              tabName = "Possible leaks",
+              tabName = "Leak discoverer",
+              size = "l",
+              background = "#a6569d",
               active = T,
               argonR::argonRow(
-                #,
                 #argonRow(
-                #  argonCard(width = 2, 
-                #                   title = h5("Possible leaks"),
-                #                   # icon = "chart-bar-32",
-                #                   h2(textOutput("alarms"))
-                #),
-                #argonCard(width = 2, 
-                #          title = h5("%possible leaks"),
-                #           # icon = "circle-08",
-                #          h2(textOutput("proportion"))
-                #),
+                  argonCard(width = 2, 
+                                   title = h5("Possible leaks"),
+                                   icon = argonIcon("bulb-61"),
+                                   h2(textOutput("alarms"))
+                ),
+                argonCard(width = 2, 
+                          title = h5("%possible leaks"),
+                          icon = argonIcon("chart-pie-35"),
+                          h2(textOutput("proportion"))
+                ),
                 argonCard(
                   width = 12,
                   height = 10,
