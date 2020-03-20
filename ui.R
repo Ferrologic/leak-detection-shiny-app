@@ -12,18 +12,14 @@ ui <- argonDash::argonDashPage(
     size = "lg",
     side = "left",
     id = "sidebar",
-    gradient = T,
     brand_url = "",
     brand_logo = "particle.png",
     argonDash::argonSidebarMenu(
-      title = "Menu",
       argonDash::argonSidebarItem(
-        tabName = 'Bmet',
-        #  icon = 'atom',
+        icon = argonIcon('atom'),
         icon_color = '#4a4a4a',
         'Identify leakages with changepoint analysis'
-      ),
-      br()
+      )
     )
   ),
   body = argonDash::argonDashBody(
@@ -223,26 +219,26 @@ div.selectize-input div.item {
                   width = 12,
                   height = 10,
                   title = "All houses",
-                  #icon = "chart-pie-35",
-                  #addSpinner(plotlyOutput("ga_plot", height = "350px"), spin = "circle", color = "#000000")
+                  icon = argonIcon("chart-bar-32"),
                   DT::DTOutput("leak_tbl")
                 ),
                 argonCard(
                   width = 12,
-                  height = 12,
                   title = "Possible leaks",
-                  #icon = "chart-pie-35",
+                  icon = argonIcon("world"),
                   #addSpinner(plotlyOutput("ga_plot", height = "350px"), spin = "circle", color = "#000000")
                   leaflet::leafletOutput("leak_map")
                 ),
                 argonCard(
                   title = "Compare neighbours",
+                  icon = argonIcon("building"),
                   width = 6,
                   uiOutput("choose_house") ,
                   uiOutput("run_analysis")
                   ),
                 argonCard(
                   title = "Comparison neighbours",
+                  icon = argonIcon("sound-wave"),
                   width = 12,
                   highcharter::highchartOutput("comparison")
                   ),
